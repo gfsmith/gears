@@ -30,6 +30,25 @@ class Polyline(object):
             except:
                 pass
 
+    def get_bounds(self):
+        if self.points:
+            minx,miny,minz = self.points[0]
+            maxx,maxy,maxz = self.points[0]
+            for x,y,z in self:
+                if x > maxx:
+                    maxx = x
+                elif x < minx:
+                    minx = x
+                if y > maxy:
+                    maxy = y
+                elif y < miny:
+                    miny = y
+                if z > maxz:
+                    maxz = z
+                elif z < minz:
+                    minz = z
+            return Point(minx,miny,minz), Point(maxx,maxy,maxz)
+            
     def appendPoint(self, p):
         if self.closed:
             if len(self.points) > 0:
@@ -66,6 +85,9 @@ class Polyline(object):
 
     def getLine(self, i):
         return Line(self.points[i], self.points[i+1])
+
+    def __iter__(self):
+        return iter(self.points)
 
     #TODO
     # Reimplement "Closed" polygons in a more uniform format

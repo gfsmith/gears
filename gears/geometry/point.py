@@ -38,6 +38,9 @@ class Point(object):
         else:
             raise ValueError
    
+    def __iter__(self):
+        return iter((self.x, self.y, self.z))
+        
     def dist(self, b=None):
         import math
 ##        print 'b = ' + str(b)
