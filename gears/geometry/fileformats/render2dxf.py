@@ -1,12 +1,4 @@
-#from geometry.point import Point
-#from geometry.line import Line
-#from geometry.polyline import Polyline
-#from geometry.arc import Arc
-#from geometry.circle import Circle
-#from geometry.block import Block
-
-import geometry
-
+from .. import Point, Line, Arc, Circle, Polyline
 import sdxf
 #from math import pi, sin, cos, degrees
 import math
@@ -39,30 +31,30 @@ class Render2DXF:
         if not ( isinstance(appendTo,sdxf.Drawing) or isinstance(appendTo,sdxf.Block) ):
             appendTo = self.d
 
-        if isinstance(g,geometry.point.Point):
+        if isinstance(g,Point):
             appendTo.append(sdxf.Point(_point(g)))
-        elif isinstance(g,geometry.line.Line):
+        elif isinstance(g,Line):
             appendTo.append(sdxf.Line(points=[_point(g.startPoint),_point(g.endPoint)]))
         #elif g.__type__ == 'Line':
         #    appendTo.append(sdxf.Line(points=[_point(g.startPoint),_point(g.endPoint)]))
-        elif isinstance(g,geometry.polyline.Polyline):
+        elif isinstance(g,Polyline):
             pl = _points(g.points)
             if g.closed == True:
                 pl = pl[:-1]
                 appendTo.append(sdxf.PolyLine(points=pl,closed=1))
             else:
                 appendTo.append(sdxf.PolyLine(points=pl,closed=0))
-        elif isinstance(g,geometry.arc.Arc):
+        elif isinstance(g,Arc):
             cp = _point(g.center)
             r = g.radius
             sa = degrees(g.startAngle)
             ea = degrees(g.endAngle)
             appendTo.append(sdxf.Arc(center=cp,radius=r,startAngle=sa,endAngle=ea))
-        elif isinstance(g,geometry.circle.Circle):
+        elif isinstance(g,Circle):
             cp = _point(g.center)
             r = g.radius
             appendTo.append(sdxf.Circle(center=cp,radius=r))
-        elif isinstance(g,geometry.block.Block):
+        elif isinstance(g,Block):
             bString = "Block%i" %self.blockNumber
             #print bString
             b = sdxf.Block(bString)
@@ -91,9 +83,9 @@ class Render2DXF:
         return str(self.d)
 
 if __name__=="__main__":
-    l1 = geometry.line.Line(Point(1,1),Point(2,1))
-    l2 = geometry.line.Line(Point(2,2),Point(3,2))
-    b = geometry.block.Block([l1,l2])
+    l1 = Line(Point(1,1),Point(2,1))
+    l2 = Line(Point(2,2),Point(3,2))
+    b = Block([l1,l2])
     r = Render2DXF()
     r.render2File([b],'junk.dxf')
 

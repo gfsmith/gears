@@ -7,7 +7,7 @@ from polyline import Polyline
 from circle import Circle
 from arc import Arc
 
-class Block:
+class Block(object):
     '''
     a container for geometric entities
     '''

@@ -1,12 +1,12 @@
 from math import sin, cos, pi, degrees, radians, atan2
-from geometry.point import Point
-from geometry.line import Line
-from geometry.arc import Arc
-from geometry.circle import Circle
-from geometry.polyline import Polyline
-from geometry.block import Block
-from geometry.vector import Vector
-from geometry.affinematrix import AffineMatrix
+from point import Point
+from line import Line
+from arc import Arc
+from circle import Circle
+from polyline import Polyline
+from block import Block
+from vector import Vector
+from affinematrix import AffineMatrix
 
 def rotateAboutPoint(geom, p, radianAngle):
     '''

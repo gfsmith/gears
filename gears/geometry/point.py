@@ -3,7 +3,7 @@
 
 EPS = 1.0e-6
 
-class Point:
+class Point(object):
     '''
     Simple point class
     '''

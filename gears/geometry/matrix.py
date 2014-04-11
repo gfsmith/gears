@@ -1,7 +1,7 @@
 # To do:
     # look at the methods to implement section below!
 
-class Matrix:
+class Matrix(object):
     '''
     A light weight (floating point) matrix class that does the basics so that it is not necessary
     to import Numeric Python for small projects

@@ -1,5 +1,4 @@
-import geometry
-from geometry import Point, Line, Arc, Circle, Polyline
+from  .. import Point, Line, Arc, Circle, Polyline
 
 class DXFParseException(Exception):
     ''' Simple parse error.'''

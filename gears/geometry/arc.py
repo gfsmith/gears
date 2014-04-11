@@ -2,7 +2,7 @@ from point import Point
 from affinematrix import AffineMatrix
 from math import pi, sin, cos, atan2, acos
 
-from geometry.polyline import Polyline
+from polyline import Polyline
 
 # To do:
 # create arcs in other ways (3 points?)
@@ -11,7 +11,7 @@ from geometry.polyline import Polyline
 
 EPS = 1.0e-6
 
-class Arc:
+class Arc(object):
     '''
     an arc in a plane parallel to the X-Y plane
     (start and end angle are not defined in other planes)

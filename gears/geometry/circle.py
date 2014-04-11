@@ -5,7 +5,7 @@ from math import pi
 
 EPS = 1.0e-6
 
-class Circle:
+class Circle(object):
     '''
     circle
     '''

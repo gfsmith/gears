@@ -1,7 +1,7 @@
 from point import Point
 from affinematrix import AffineMatrix
 
-class Line:
+class Line(object):
     '''
     Line class
     '''

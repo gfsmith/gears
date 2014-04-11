@@ -3,7 +3,7 @@ import math
 
 epsilon = 1.0E-6
 
-class gear:
+class Gear:
     # a few conventions need to be described:
     # theta is the angle that the contact point of the "string" makes with the base circle in generating the involute
     # rho is the angle from the abcissa (x-axis) to the point of interest (polar angle)

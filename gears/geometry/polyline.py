@@ -7,7 +7,7 @@ from point import Point
 from line import Line
 from affinematrix import AffineMatrix
 
-class Polyline:
+class Polyline(object):
     '''
     A polyline is a list of points that are connected, in the order in which they are stored
     '''
