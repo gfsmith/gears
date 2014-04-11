@@ -19,6 +19,10 @@ class GearPanel(wx.Panel):
         self.draw(dc)
 
     def save(self, dc, filename):
+        '''
+        Save the gear as a bitmap file.
+        (untested)
+        '''
         # based largely on code posted to wxpython-users by Andrea Gavana 2006-11-08
         size = dc.Size
 
@@ -64,24 +68,33 @@ class GearPanel(wx.Panel):
 
         # Generate the scaled gear
         points = self.scaled_gear(w,h)
-        cx,cy = w/2.0,h/2.0
-        dc.SetPen(wx.WHITE_PEN)
-        for i in range(len(points)-1):
-            (x1,y1),(x2,y2) = points[i],points[i+1]
-            dc.DrawLine(x1,y1,x2,y2)
+        if points:
+            cx,cy = w/2.0,h/2.0
+            dc.SetPen(wx.WHITE_PEN)
+            for i in range(len(points)-1):
+                (x1,y1),(x2,y2) = points[i],points[i+1]
+                dc.DrawLine(x1,y1,x2,y2)
 
     def set_gear(self, g):
         self.gear = g
         self.Refresh()
 
+
 if __name__ == "__main__":
-    gear = Gear(15)
     app = wx.App(False)
     frame = wx.Frame(None)
-    panel = GearPanel(frame, gear)
+    panel = GearPanel(frame, Gear(3))
     
     frame.SetSize((400,400))
     frame.SetTitle("WxGear Example")
     frame.Show(True)
+
+    def update_gear(evt):
+        teeth = panel.gear.N
+        panel.set_gear(Gear(teeth+1))
+
+    timer = wx.Timer(panel)
+    panel.Bind(wx.EVT_TIMER, update_gear, timer)
+    timer.Start(250)
     
     app.MainLoop()
