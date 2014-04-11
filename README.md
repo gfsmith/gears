@@ -4,8 +4,8 @@ gears
 run mkgear.py in order to get a bunch of spur gear dxfs generated into the "gears\gearDXFs" folder
 
 ## Example
-![alt text](https://github.com/gfsmith/gears/blob/master/gears/images/gear_7_tooth.PNG "7 tooth gear")
-![alt text](https://github.com/gfsmith/gears/blob/master/gears/images/gear_19_tooth.PNG "19 tooth gear")
+![](/images/gear_7_tooth.PNG "7 tooth gear")
+![](/images/gear_19_tooth.PNG "19 tooth gear")
 
 ## Notes
 The geometry library could use some work, probably restarting from scratch or just using someone elses?
