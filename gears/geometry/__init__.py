@@ -27,6 +27,7 @@ from circle import Circle
 from arc import Arc
 from block import Block
 from fileformats.render2dxf import Render2DXF
+from fileformats.render2svg import Render2SVG
 from twod_operations import *
 #from toacadscript import element2Script, elements2Script, toFile
 

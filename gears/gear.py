@@ -181,6 +181,13 @@ class Gear:
         '''
         r = Render2DXF()
         r.render2File([self.geom],fname)
+        
+    def render2SVG(self,fname):
+        '''
+        render a gear to SVG
+        '''
+        r = Render2SVG()
+        r.render2File([self.geom], fname)
 
     def _clearance_trochoid(self,theta, R_pitch,r):
         '''
